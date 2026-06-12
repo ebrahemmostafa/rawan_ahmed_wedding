@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>روان وأحمد - دعوة زفاف</title>
+    <meta
+      name="description"
+      content="دعوة زفاف روان وأحمد في قاعة تاج الملكية يوم 23 يونيو 2026."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Aref+Ruqaa+Ink:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500;600&family=Pinyon+Script&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #4a3832;
+        --muted: #8a7068;
+        --paper: #fdf6f0;
+        --cream: #f9ede4;
+        --blush: #f0d5cc;
+        --rose: #b56b6b;
+        --rose-dark: #8b4a5a;
+        --rose-deep: #6d3548;
+        --sage: #6b7f65;
+        --gold: #c4a265;
+        --warm-white: #fff9f5;
+        --display: "Aref Ruqaa", "Noto Naskh Arabic", Amiri, Georgia, serif;
+        --names-font: "Aref Ruqaa Ink", "Aref Ruqaa", "Noto Naskh Arabic", Amiri, serif;
+        --arabic: "Aref Ruqaa", "Noto Naskh Arabic", Amiri, "Times New Roman", serif;
+        --body: Karla, system-ui, -apple-system, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--cream);
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--arabic);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body.locked {
+        overflow: hidden;
+      }
+
+      button,
+      input {
+        font: inherit;
+        border: none;
+        outline: none;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* =============== OPEN LAYER =============== */
+      .open-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        background: linear-gradient(160deg, #f7e5dc 0%, #f0d0c5 40%, #e8c4bc 100%);
+        transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1),
+          visibility 800ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .open-layer.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .open-card {
+        position: relative;
+        display: grid;
+        place-items: center;
+        width: min(24rem, calc(100vw - 3rem));
+        aspect-ratio: 9 / 16;
+        overflow: hidden;
+        border-radius: 1.5rem;
+        box-shadow: 0 30px 80px rgba(100, 40, 55, 0.25),
+          0 0 0 1px rgba(255, 255, 255, 0.3);
+        background: #fff;
+      }
+
+      .open-card video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .open-card::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: linear-gradient(
+          180deg,
+          transparent 40%,
+          rgba(255, 248, 242, 0.6)
+        );
+        pointer-events: none;
+      }
+
+      .open-button {
+        position: absolute;
+        left: 50%;
+        bottom: 1.5rem;
+        z-index: 2;
+        width: calc(100% - 2.5rem);
+        min-height: 3.2rem;
+        transform: translateX(-50%);
+        border: none;
+        border-radius: 999px;
+        background: rgba(139, 74, 90, 0.92);
+        color: var(--warm-white);
+        cursor: pointer;
+        box-shadow: 0 12px 30px rgba(100, 40, 55, 0.3);
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+
+      .open-button:active {
+        transform: translateX(-50%) scale(0.97);
+      }
+
+      /* =============== MAIN APP =============== */
+      .app {
+        position: relative;
+        min-height: 100svh;
+        overflow: hidden;
+      }
+
+      /* =============== TOP BAR =============== */
+      .top-bar {
+        position: fixed;
+        top: max(1rem, env(safe-area-inset-top));
+        left: 0;
+        right: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.2rem;
+        pointer-events: none;
+      }
+
+      .lang-toggle {
+        display: flex;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid rgba(139, 74, 90, 0.2);
+        box-shadow: 0 4px 16px rgba(100, 40, 55, 0.1);
+        pointer-events: auto;
+        backdrop-filter: blur(12px);
+      }
+
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.2rem;
+        border: none;
+        background: rgba(255, 248, 242, 0.6);
+        color: var(--rose-dark);
+        cursor: pointer;
+        font-size: 0.78rem;
+        font-weight: 700;
+        font-family: var(--body);
+        letter-spacing: 0.04em;
+        transition: background 200ms ease, color 200ms ease;
+      }
+
+      .lang-btn.active {
+        background: var(--rose-dark);
+        color: var(--warm-white);
+      }
+
+      .sound-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        border: 1px solid rgba(139, 74, 90, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 248, 242, 0.6);
+        color: var(--rose-dark);
+        cursor: pointer;
+        pointer-events: auto;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 16px rgba(100, 40, 55, 0.1);
+        font-size: 1rem;
+        transition: background 200ms ease;
+      }
+
+      .sound-toggle:hover {
+        background: rgba(255, 248, 242, 0.9);
+      }
+
+      /* =============== HERO SECTION =============== */
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          #f5ddd4 0%,
+          #f8e5dc 15%,
+          #fdf3ed 35%,
+          #fef7f2 50%,
+          #fdf1ea 65%,
+          #f5ddd4 85%,
+          #eed0c5 100%
+        );
+      }
+
+      /* Background video */
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        opacity: 0.45;
+        filter: saturate(0.7) brightness(1.1);
+      }
+
+      .hero-video-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(180deg,
+            rgba(245, 221, 212, 0.75) 0%,
+            rgba(253, 243, 237, 0.55) 25%,
+            rgba(254, 247, 242, 0.45) 45%,
+            rgba(253, 241, 234, 0.5) 65%,
+            rgba(238, 208, 197, 0.8) 100%
+          ),
+          radial-gradient(circle at 50% 40%, rgba(255, 248, 242, 0.3), transparent 70%);
+        pointer-events: none;
+      }
+
+      /* Rings decoration */
+      .rings-decoration {
+        position: relative;
+        margin-top: -1rem;
+        margin-bottom: 0.5rem;
+        width: 6rem;
+        height: 4rem;
+        opacity: 0;
+        animation: fadeInDown 1s ease 0.3s forwards;
+      }
+
+      .ring {
+        position: absolute;
+        width: 2.8rem;
+        height: 2.8rem;
+        border: 2.5px solid var(--gold);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .ring:first-child {
+        left: 0.6rem;
+      }
+
+      .ring:last-child {
+        right: 0.6rem;
+      }
+
+      .ring-diamond {
+        position: absolute;
+        top: -0.4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 5px solid var(--gold);
+      }
+
+      /* Hero content */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 1.5rem;
+        opacity: 0;
+        animation: fadeInUp 1.2s ease 0.5s forwards;
+      }
+
+      .blessing-text {
+        margin: 0;
+        color: var(--rose-dark);
+        font-family: var(--arabic);
+        font-size: clamp(1rem, 3.5vw, 1.25rem);
+        font-weight: 400;
+        line-height: 1.8;
+        opacity: 0.85;
+      }
+
+      .invitation-text {
+        margin: 0.6rem 0 0.3rem;
+        color: var(--ink);
+        font-family: var(--arabic);
+        font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+        font-weight: 400;
+        line-height: 1.9;
+        opacity: 0.75;
+      }
+
+      .names-container {
+        position: relative;
+        margin: 0.8rem 0;
+      }
+
+      .names {
+        margin: 0;
+        color: var(--rose-deep);
+        font-family: var(--names-font);
+        font-size: clamp(3.8rem, 16vw, 6.5rem);
+        font-weight: 700;
+        line-height: 0.95;
+        text-shadow: 0 2px 4px rgba(109, 53, 72, 0.08);
+      }
+
+      .names-ampersand {
+        display: block;
+        color: var(--rose);
+        font-family: var(--names-font);
+        font-size: 0.35em;
+        line-height: 1.6;
+        opacity: 0.7;
+      }
+
+      .couple-english {
+        margin: 0.3rem 0 0;
+        color: var(--muted);
+        font-family: var(--body);
+        font-size: clamp(0.85rem, 2.8vw, 1rem);
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        opacity: 0.6;
+      }
+
+      .hero-date-section {
+        margin-top: 1.5rem;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.9s forwards;
+      }
+
+      .hero-date-day {
+        margin: 0;
+        color: var(--muted);
+        font-family: var(--arabic);
+        font-size: clamp(0.95rem, 3vw, 1.1rem);
+        font-weight: 400;
+      }
+
+      .hero-date {
+        margin: 0.15rem 0 0;
+        color: var(--ink);
+        font-family: var(--arabic);
+        font-size: clamp(1.4rem, 5vw, 1.85rem);
+        font-weight: 400;
+        letter-spacing: 0.1em;
+      }
+
+      /* Floral arrangement at bottom */
+      .floral-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 45%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .floral-canvas {
+        position: absolute;
+        bottom: -5%;
+        left: -10%;
+        right: -10%;
+        height: 100%;
+        opacity: 0;
+        animation: floralReveal 2s ease 0.8s forwards;
+      }
+
+      /* Dusty pink and dried flower petals using CSS gradients */
+      .petal {
+        position: absolute;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        filter: blur(0.3px);
+      }
+
+      /* Large back petals - dusty rose */
+      .petal-1 { width: 7rem; height: 5.5rem; background: radial-gradient(ellipse at 40% 30%, #d4a0a0 0%, #c08585 40%, #a06868 100%); bottom: 2%; left: 5%; transform: rotate(-15deg); opacity: 0.75; }
+      .petal-2 { width: 8rem; height: 6rem; background: radial-gradient(ellipse at 50% 40%, #dbb0a8 0%, #c89890 40%, #b07870 100%); bottom: 5%; left: 18%; transform: rotate(25deg); opacity: 0.8; }
+      .petal-3 { width: 6.5rem; height: 5rem; background: radial-gradient(ellipse at 45% 35%, #d9a8a0 0%, #c59088 50%, #a87068 100%); bottom: 3%; right: 8%; transform: rotate(-20deg); opacity: 0.7; }
+      .petal-4 { width: 7.5rem; height: 5.5rem; background: radial-gradient(ellipse at 40% 40%, #e0b8b0 0%, #cca098 45%, #b88880 100%); bottom: 8%; right: 20%; transform: rotate(15deg); opacity: 0.85; }
+      .petal-5 { width: 5rem; height: 4rem; background: radial-gradient(ellipse at 50% 35%, #c89898 0%, #b08080 50%, #987070 100%); bottom: 12%; left: 35%; transform: rotate(-30deg); opacity: 0.65; }
+
+      /* Medium petals - pink tones */
+      .petal-6 { width: 4.5rem; height: 3.5rem; background: radial-gradient(ellipse at 45% 40%, #e8c0b8 0%, #d8a8a0 50%, #c89890 100%); bottom: 15%; left: 10%; transform: rotate(35deg); opacity: 0.7; }
+      .petal-7 { width: 5.5rem; height: 4.2rem; background: radial-gradient(ellipse at 40% 30%, #deb0a8 0%, #c89890 40%, #b28078 100%); bottom: 18%; right: 15%; transform: rotate(-10deg); opacity: 0.75; }
+      .petal-8 { width: 4rem; height: 3.2rem; background: radial-gradient(ellipse at 50% 45%, #d4a098 0%, #c08888 50%, #a87878 100%); bottom: 6%; left: 45%; transform: rotate(45deg); opacity: 0.6; }
+      .petal-9 { width: 6rem; height: 4.5rem; background: radial-gradient(ellipse at 38% 35%, #e0b8b0 0%, #d0a098 45%, #c09088 100%); bottom: 0%; left: 28%; transform: rotate(-5deg); opacity: 0.8; }
+      .petal-10 { width: 5rem; height: 4rem; background: radial-gradient(ellipse at 42% 38%, #d8b0a8 0%, #c49890 50%, #b08078 100%); bottom: 0%; right: 30%; transform: rotate(20deg); opacity: 0.78; }
+
+      /* Small accent petals */
+      .petal-11 { width: 3rem; height: 2.5rem; background: radial-gradient(ellipse at 50% 40%, #f0d0c8 0%, #e0b8b0 50%, #d0a098 100%); bottom: 20%; left: 25%; transform: rotate(-25deg); opacity: 0.55; }
+      .petal-12 { width: 3.5rem; height: 2.8rem; background: radial-gradient(ellipse at 45% 35%, #e8c8c0 0%, #d8b0a8 50%, #c89898 100%); bottom: 22%; right: 28%; transform: rotate(40deg); opacity: 0.5; }
+      .petal-13 { width: 2.5rem; height: 2rem; background: radial-gradient(ellipse at 50% 50%, #dcc0b8 0%, #c8a8a0 60%, #b89088 100%); bottom: 10%; left: 55%; transform: rotate(60deg); opacity: 0.6; }
+
+      /* Leaves and stems */
+      .leaf {
+        position: absolute;
+        border-radius: 0% 80% 0% 80%;
+        opacity: 0.5;
+      }
+
+      .leaf-1 { width: 4rem; height: 1.5rem; background: linear-gradient(135deg, #8a9a78 0%, #7a8a68 50%, #6a7a58 100%); bottom: 10%; left: 15%; transform: rotate(-40deg); }
+      .leaf-2 { width: 3.5rem; height: 1.2rem; background: linear-gradient(135deg, #96a884 0%, #849678 50%, #728668 100%); bottom: 14%; right: 18%; transform: rotate(30deg); }
+      .leaf-3 { width: 3rem; height: 1rem; background: linear-gradient(135deg, #7e9070 0%, #6e8060 50%, #5e7050 100%); bottom: 20%; left: 40%; transform: rotate(-55deg); }
+      .leaf-4 { width: 2.5rem; height: 0.9rem; background: linear-gradient(135deg, #8a9a78 0%, #7a8a68 60%, #6a7a58 100%); bottom: 8%; right: 40%; transform: rotate(50deg); }
+
+      /* White/cream small flowers */
+      .mini-flower {
+        position: absolute;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 40%, #fff 0%, #f5e8e0 60%, #e8d8d0 100%);
+        box-shadow: 0 0 4px rgba(200, 150, 140, 0.3);
+      }
+
+      .mini-flower-1 { bottom: 24%; left: 20%; width: 1rem; height: 1rem; }
+      .mini-flower-2 { bottom: 16%; right: 25%; width: 0.8rem; height: 0.8rem; }
+      .mini-flower-3 { bottom: 28%; left: 50%; width: 1.1rem; height: 1.1rem; }
+      .mini-flower-4 { bottom: 12%; left: 60%; width: 0.7rem; height: 0.7rem; }
+      .mini-flower-5 { bottom: 26%; right: 35%; width: 0.9rem; height: 0.9rem; }
+
+      /* Dried grass/pampas elements */
+      .pampas {
+        position: absolute;
+        width: 2px;
+        border-radius: 999px;
+      }
+
+      .pampas-1 { height: 8rem; background: linear-gradient(to top, #c8b098, #d8c8b0, transparent); bottom: 5%; left: 8%; transform: rotate(-12deg); opacity: 0.5; }
+      .pampas-2 { height: 7rem; background: linear-gradient(to top, #d0b8a0, #e0d0c0, transparent); bottom: 3%; right: 12%; transform: rotate(8deg); opacity: 0.45; }
+      .pampas-3 { height: 6rem; background: linear-gradient(to top, #c0a890, #d0c0b0, transparent); bottom: 8%; left: 42%; transform: rotate(-5deg); opacity: 0.4; }
+
+      /* Pampas fluffy tops */
+      .pampas-top {
+        position: absolute;
+        border-radius: 40% 40% 50% 50%;
+        filter: blur(1px);
+      }
+
+      .pampas-top-1 { width: 2.5rem; height: 3rem; background: radial-gradient(ellipse at 50% 60%, #e8d8c8 0%, #d8c8b8 50%, transparent 100%); bottom: 12%; left: 5%; opacity: 0.5; transform: rotate(-12deg); }
+      .pampas-top-2 { width: 2rem; height: 2.5rem; background: radial-gradient(ellipse at 50% 60%, #e0d0c0 0%, #d0c0b0 50%, transparent 100%); bottom: 9%; right: 10%; opacity: 0.45; transform: rotate(8deg); }
+
+      /* CTA Button at bottom */
+      .hero-cta {
+        position: absolute;
+        bottom: max(2rem, env(safe-area-inset-bottom, 1rem));
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease 1.3s forwards;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-width: 14rem;
+        min-height: 3rem;
+        border: 1px solid rgba(139, 74, 90, 0.25);
+        border-radius: 999px;
+        background: rgba(255, 248, 242, 0.7);
+        color: var(--rose-dark);
+        cursor: pointer;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 8px 24px rgba(100, 40, 55, 0.12);
+        font-family: var(--arabic);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 200ms ease, box-shadow 200ms ease;
+      }
+
+      .cta-button:hover {
+        background: rgba(255, 248, 242, 0.92);
+        box-shadow: 0 12px 32px rgba(100, 40, 55, 0.18);
+      }
+
+      .cta-arrow {
+        display: inline-block;
+        font-size: 0.85em;
+        transition: transform 200ms ease;
+      }
+
+      .cta-button:hover .cta-arrow {
+        transform: translateY(2px);
+      }
+
+      /* =============== SECTIONS =============== */
+      .section {
+        padding: clamp(4rem, 10vw, 7rem) 1.1rem;
+        background: var(--paper);
+      }
+
+      .section:nth-child(even) {
+        background: linear-gradient(180deg, var(--paper), var(--cream), var(--paper));
+      }
+
+      .wrap {
+        width: min(42rem, 100%);
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .section-card {
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 1.5rem;
+        background: rgba(255, 248, 242, 0.8);
+        box-shadow: 0 20px 60px rgba(100, 50, 60, 0.08);
+        padding: clamp(1.8rem, 6vw, 3rem);
+        backdrop-filter: blur(10px);
+      }
+
+      .kicker {
+        margin: 0;
+        color: var(--rose-dark);
+        font-family: var(--arabic);
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+        line-height: 1.2;
+      }
+
+      .section-title {
+        margin: 0.4rem 0 0;
+        font-family: var(--display);
+        font-size: clamp(2.4rem, 8vw, 3.8rem);
+        font-weight: 400;
+        line-height: 1;
+        color: var(--ink);
+      }
+
+      /* Countdown */
+      .count-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: clamp(0.5rem, 2vw, 1rem);
+        margin-top: 2rem;
+      }
+
+      .count-box {
+        border: 1px solid rgba(139, 74, 90, 0.12);
+        border-radius: 1.1rem;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 1rem 0.4rem;
+        transition: transform 200ms ease;
+      }
+
+      .count-box:hover {
+        transform: translateY(-2px);
+      }
+
+      .count-value {
+        display: block;
+        color: var(--rose-dark);
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 8vw, 3.4rem);
+        font-variant-numeric: tabular-nums;
+        line-height: 1;
+      }
+
+      .count-label,
+      .small {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.8;
+      }
+
+      /* Schedule */
+      .schedule {
+        display: grid;
+        gap: 0.85rem;
+        margin-top: 2rem;
+        text-align: right;
+      }
+
+      .schedule-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(139, 74, 90, 0.1);
+        padding-bottom: 0.85rem;
+      }
+
+      .schedule-row:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .schedule-row strong {
+        font-family: var(--display);
+        font-size: clamp(1.5rem, 4.5vw, 1.9rem);
+        font-weight: 400;
+      }
+
+      /* Venue */
+      .venue-copy {
+        margin: 1rem auto 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+
+      .cta-row {
+        display: grid;
+        gap: 0.65rem;
+        width: min(20rem, 100%);
+        margin: 2rem auto 0;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.1rem;
+        border: 1px solid var(--rose-dark);
+        border-radius: 999px;
+        background: var(--rose-dark);
+        color: var(--warm-white);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: transform 150ms ease, box-shadow 150ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(100, 40, 55, 0.2);
+      }
+
+      .button:active {
+        transform: translateY(0);
+      }
+
+      .button.secondary {
+        background: rgba(255, 248, 242, 0.7);
+        color: var(--rose-dark);
+      }
+
+      /* RSVP */
+      .rsvp-form {
+        display: grid;
+        gap: 0.85rem;
+        width: min(22rem, 100%);
+        margin: 2rem auto 0;
+      }
+
+      .name-input {
+        width: 100%;
+        min-height: 3.1rem;
+        border: 1px solid rgba(139, 74, 90, 0.2);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.6);
+        color: var(--ink);
+        padding: 0 1.2rem;
+        text-align: center;
+        font-size: 1rem;
+        transition: border-color 200ms ease;
+      }
+
+      .name-input:focus {
+        border-color: var(--rose-dark);
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .name-input::placeholder {
+        color: var(--muted);
+        opacity: 0.7;
+      }
+
+      .rsvp-closing {
+        margin-top: 2.5rem;
+      }
+
+      .rsvp-closing .closing-names {
+        color: var(--rose-dark);
+        font-family: var(--names-font);
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.2;
+      }
+
+      .rsvp-closing .closing-date {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+      }
+
+      /* =============== BOTTOM NAV =============== */
+      .bottom-nav {
+        position: fixed;
+        left: 50%;
+        bottom: max(0.9rem, env(safe-area-inset-bottom));
+        z-index: 50;
+        display: flex;
+        justify-content: space-between;
+        width: min(22rem, calc(100vw - 1.5rem));
+        transform: translateX(-50%);
+        border: 1px solid rgba(139, 74, 90, 0.12);
+        border-radius: 999px;
+        background: rgba(255, 248, 242, 0.85);
+        box-shadow: 0 16px 40px rgba(100, 40, 55, 0.12);
+        padding: 0.35rem;
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-link {
+        flex: 1;
+        border-radius: 999px;
+        color: var(--rose-dark);
+        padding: 0.65rem 0.35rem;
+        text-align: center;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        transition: background 200ms ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        background: rgba(139, 74, 90, 0.08);
+      }
+
+      /* =============== TOAST =============== */
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 5.2rem;
+        z-index: 60;
+        width: min(22rem, calc(100vw - 2rem));
+        transform: translate(-50%, 0.7rem);
+        border: 1px solid rgba(139, 74, 90, 0.15);
+        border-radius: 1.1rem;
+        background: rgba(255, 248, 242, 0.96);
+        color: var(--ink);
+        box-shadow: 0 20px 48px rgba(100, 40, 55, 0.16);
+        padding: 1rem 1.1rem;
+        text-align: center;
+        font-size: 0.95rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 250ms ease, transform 250ms ease;
+        backdrop-filter: blur(12px);
+      }
+
+      .toast.is-visible {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      /* =============== ANIMATIONS =============== */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(1.5rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-1rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes floralReveal {
+        from {
+          opacity: 0;
+          transform: translateY(2rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes gentleFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+
+      @keyframes shimmer {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+
+      /* =============== RESPONSIVE =============== */
+      @media (max-width: 440px) {
+        .count-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .names {
+          font-size: clamp(3.2rem, 15vw, 5.5rem);
+        }
+
+        .floral-bottom {
+          height: 38%;
+        }
+      }
+
+      @media (min-width: 760px) {
+        .app {
+          display: grid;
+          justify-items: center;
+        }
+
+        .hero,
+        .section {
+          width: min(100%, 42rem);
+        }
+
+        .floral-bottom {
+          height: 40%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 1ms !important;
+          scroll-behavior: auto !important;
+          transition-duration: 1ms !important;
+        }
+      }
+
+      /* Divider ornament between sections */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 0.5rem 0;
+        color: var(--rose);
+        opacity: 0.4;
+      }
+
+      .section-divider span {
+        display: block;
+        width: 2.5rem;
+        height: 1px;
+        background: currentColor;
+      }
+
+      .section-divider i {
+        font-style: normal;
+        font-size: 0.7rem;
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- ============ OPEN LAYER ============ -->
+    <div class="open-layer" id="openLayer">
+      <div class="open-card">
+        <video id="openVideo" src="assets/card-rawan.mp4" preload="auto" muted playsinline></video>
+        <button class="open-button" type="button" id="openButton">افتح الدعوة</button>
+      </div>
+    </div>
+
+    <!-- ============ MAIN ============ -->
+    <main class="app">
+      <!-- Top Bar -->
+      <div class="top-bar" aria-label="Invitation controls">
+        <button class="sound-toggle" type="button" id="soundButton" aria-label="تشغيل الصوت">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+        </button>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="ar">ع</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <!-- Background Video -->
+        <video class="hero-video" src="assets/pampas-field.mp4" autoplay muted loop playsinline></video>
+        <div class="hero-video-overlay"></div>
+
+        <!-- Wedding Rings -->
+        <div class="rings-decoration" aria-hidden="true">
+          <div class="ring">
+            <div class="ring-diamond"></div>
+          </div>
+          <div class="ring"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <p class="blessing-text">بكل الحب والسرور</p>
+          <p class="invitation-text">ندعوكم لحضور حفل زفاف</p>
+
+          <div class="names-container">
+            <h1 class="names" id="hero-title">
+              روان
+              <span class="names-ampersand">&amp;</span>
+              أحمد
+            </h1>
+          </div>
+
+          <div class="hero-date-section">
+            <p class="hero-date-day">يوم الثلاثاء</p>
+            <p class="hero-date">23 . 6 . 2026</p>
+          </div>
+        </div>
+
+        <!-- Floral arrangement bottom -->
+        <div class="floral-bottom" aria-hidden="true">
+          <div class="floral-canvas">
+            <!-- Pampas grass -->
+            <div class="pampas pampas-1"></div>
+            <div class="pampas pampas-2"></div>
+            <div class="pampas pampas-3"></div>
+            <div class="pampas-top pampas-top-1"></div>
+            <div class="pampas-top pampas-top-2"></div>
+
+            <!-- Leaves -->
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
+
+            <!-- Large petals -->
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+
+            <!-- Medium petals -->
+            <div class="petal petal-6"></div>
+            <div class="petal petal-7"></div>
+            <div class="petal petal-8"></div>
+            <div class="petal petal-9"></div>
+            <div class="petal petal-10"></div>
+
+            <!-- Small petals -->
+            <div class="petal petal-11"></div>
+            <div class="petal petal-12"></div>
+            <div class="petal petal-13"></div>
+
+            <!-- Mini white flowers -->
+            <div class="mini-flower mini-flower-1"></div>
+            <div class="mini-flower mini-flower-2"></div>
+            <div class="mini-flower mini-flower-3"></div>
+            <div class="mini-flower mini-flower-4"></div>
+            <div class="mini-flower mini-flower-5"></div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="hero-cta">
+          <a class="cta-button" href="#details">
+            عرض التفاصيل
+            <span class="cta-arrow">↓</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ COUNTDOWN ============ -->
+      <section class="section" id="details" aria-labelledby="countdown-title">
+        <div class="wrap section-card">
+          <p class="kicker">نعد الأيام</p>
+          <h2 class="section-title" id="countdown-title">حتى ليلة الفرح</h2>
+          <div class="count-grid" aria-live="polite">
+            <div class="count-box">
+              <span class="count-value" data-count="days">--</span>
+              <span class="count-label">يوم</span>
+            </div>
+            <div class="count-box">
+              <span class="count-value" data-count="hours">--</span>
+              <span class="count-label">ساعة</span>
+            </div>
+            <div class="count-box">
+              <span class="count-value" data-count="minutes">--</span>
+              <span class="count-label">دقيقة</span>
+            </div>
+            <div class="count-box">
+              <span class="count-value" data-count="seconds">--</span>
+              <span class="count-label">ثانية</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCHEDULE ============ -->
+      <section class="section" aria-labelledby="schedule-title">
+        <div class="wrap section-card">
+          <p class="kicker">تفاصيل الحفل</p>
+          <h2 class="section-title" id="schedule-title">برنامج الليلة</h2>
+          <div class="schedule">
+            <div class="schedule-row">
+              <strong>استقبال الضيوف</strong>
+              <span class="small">8:00 مساءً</span>
+            </div>
+            <div class="schedule-row">
+              <strong>بداية الحفل</strong>
+              <span class="small">8:30 مساءً</span>
+            </div>
+            <div class="schedule-row">
+              <strong>العشاء</strong>
+              <span class="small">10:00 مساءً</span>
+            </div>
+            <div class="schedule-row">
+              <strong>ليلة الفرح</strong>
+              <span class="small">طوال المساء</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ VENUE ============ -->
+      <section class="section" id="venue" aria-labelledby="venue-title">
+        <div class="wrap section-card">
+          <p class="kicker">الموقع</p>
+          <h2 class="section-title" id="venue-title">قاعة تاج الملكية</h2>
+          <p class="venue-copy">
+            يسعدنا حضوركم ومشاركتكم فرحتنا<br />
+            الساعة 8 مساءً
+          </p>
+          <div class="cta-row">
+            <a
+              class="button"
+              href="https://share.google/EExDZqeE5wKM54AAE"
+              target="_blank"
+              rel="noreferrer"
+            >
+              فتح الموقع
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RSVP ============ -->
+      <section class="section" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="wrap section-card">
+          <p class="kicker">تأكيد الحضور</p>
+          <h2 class="section-title" id="rsvp-title">تشرفونا؟</h2>
+          <p class="venue-copy">يسعدنا تأكيد حضوركم ومشاركتكم أجمل لحظاتنا.</p>
+          <form class="rsvp-form" id="rsvpForm">
+            <input
+              class="name-input"
+              id="guestName"
+              name="guestName"
+              autocomplete="name"
+              placeholder="الاسم الكامل"
+              required
+            />
+            <button class="button" type="submit">سأحضر بكل سرور</button>
+            <button class="button secondary" type="button" id="declineButton">
+              أعتذر عن الحضور
+            </button>
+          </form>
+          <div class="rsvp-closing">
+            <p class="closing-names">روان &amp; أحمد</p>
+            <p class="closing-date">تبدأ حكايتنا - 23.06.2026</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Nav -->
+      <nav class="bottom-nav" aria-label="Invitation navigation">
+        <a class="nav-link" href="#home">الرئيسية</a>
+        <a class="nav-link" href="#details">التفاصيل</a>
+        <a class="nav-link" href="#venue">الموقع</a>
+        <a class="nav-link" href="#rsvp">الحضور</a>
+      </nav>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        var openLayer = document.getElementById("openLayer");
+        var openButton = document.getElementById("openButton");
+        var openVideo = document.getElementById("openVideo");
+        var soundButton = document.getElementById("soundButton");
+        var rsvpForm = document.getElementById("rsvpForm");
+        var guestName = document.getElementById("guestName");
+        var declineButton = document.getElementById("declineButton");
+        var toast = document.getElementById("toast");
+        var targetDate = new Date("2026-06-23T20:00:00");
+        var toastTimer;
+
+        function pad(value) {
+          return String(value).padStart(2, "0");
+        }
+
+        function updateCountdown() {
+          var diff = Math.max(0, targetDate.getTime() - Date.now());
+          var days = Math.floor(diff / 86400000);
+          var hours = Math.floor((diff / 3600000) % 24);
+          var minutes = Math.floor((diff / 60000) % 60);
+          var seconds = Math.floor((diff / 1000) % 60);
+          document.querySelector('[data-count="days"]').textContent = pad(days);
+          document.querySelector('[data-count="hours"]').textContent = pad(hours);
+          document.querySelector('[data-count="minutes"]').textContent = pad(minutes);
+          document.querySelector('[data-count="seconds"]').textContent = pad(seconds);
+        }
+
+        function showToast(message) {
+          window.clearTimeout(toastTimer);
+          toast.textContent = message;
+          toast.classList.add("is-visible");
+          toastTimer = window.setTimeout(function () {
+            toast.classList.remove("is-visible");
+          }, 4200);
+        }
+
+        var isOpening = false;
+
+        function revealInvitation() {
+          openLayer.classList.add("is-hidden");
+          document.body.classList.remove("locked");
+          openVideo.pause();
+          window.setTimeout(function () {
+            openLayer.setAttribute("hidden", "");
+          }, 820);
+          window.scrollTo({ top: 0, behavior: "auto" });
+        }
+
+        openButton.addEventListener("click", function () {
+          if (isOpening) return;
+          isOpening = true;
+          openButton.disabled = true;
+          openButton.textContent = "جاري فتح الدعوة...";
+          openVideo.currentTime = 0;
+
+          var fallbackTimer = window.setTimeout(function () {
+            revealInvitation();
+          }, openVideo.duration && isFinite(openVideo.duration) ? openVideo.duration * 1000 + 500 : 12000);
+
+          openVideo.addEventListener(
+            "ended",
+            function () {
+              window.clearTimeout(fallbackTimer);
+              revealInvitation();
+            },
+            { once: true }
+          );
+
+          openVideo.play().catch(function () {
+            window.clearTimeout(fallbackTimer);
+            revealInvitation();
+          });
+        });
+
+        soundButton.addEventListener("click", function () {
+          showToast("تشغيل الدعوة مضبوط على الوضع الصامت.");
+        });
+
+        rsvpForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var name = guestName.value.trim();
+          showToast(
+            name
+              ? "شكرًا يا " + name + "، نسعد بحضوركم ومشاركتكم فرحتنا."
+              : "شكرًا لكم، نسعد بحضوركم ومشاركتكم فرحتنا."
+          );
+          rsvpForm.reset();
+        });
+
+        declineButton.addEventListener("click", function () {
+          showToast("تم تسجيل اعتذاركم، وتصلنا محبتكم بكل تقدير.");
+        });
+
+        // Language toggle
+        var langBtns = document.querySelectorAll(".lang-btn");
+        langBtns.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            langBtns.forEach(function (b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+            showToast(btn.dataset.lang === "ar" ? "اللغة العربية" : "English language - coming soon");
+          });
+        });
+
+        // Intersection observer for scroll animations
+        var observerOptions = { threshold: 0.15 };
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".section-card").forEach(function (card) {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(1.5rem)";
+          card.style.transition = "opacity 600ms ease, transform 600ms ease";
+          observer.observe(card);
+        });
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+      })();
+    </script>
+  </body>
+</html>
