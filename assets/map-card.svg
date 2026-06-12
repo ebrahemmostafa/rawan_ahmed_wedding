@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Map to Dubai World Trade Centre">
+  <defs>
+    <linearGradient id="mapbg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eef2f9"/>
+      <stop offset=".55" stop-color="#e5ebf4"/>
+      <stop offset="1" stop-color="#f6f1e7"/>
+    </linearGradient>
+    <filter id="pinshadow">
+      <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#7b2e2b" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="900" height="520" fill="url(#mapbg)"/>
+  <g opacity=".9">
+    <path d="M275 0h210c-16 83-71 128-95 188 54 61 86 132 66 332H258c54-134 69-219 22-309-28-53-23-136-5-211z" fill="#8da7d8" opacity=".74"/>
+    <path d="M0 100c212 7 400 51 555 99 119 37 234 43 345 31" fill="none" stroke="#fff" stroke-width="34"/>
+    <path d="M0 100c212 7 400 51 555 99 119 37 234 43 345 31" fill="none" stroke="#b8c1d4" stroke-width="5"/>
+    <path d="M28 388c150-72 291-88 426-48 146 43 282 93 418 99" fill="none" stroke="#fff" stroke-width="32"/>
+    <path d="M28 388c150-72 291-88 426-48 146 43 282 93 418 99" fill="none" stroke="#b8c1d4" stroke-width="5"/>
+    <path d="M703-20c-54 115-67 232-37 351 14 55 18 112 11 189" fill="none" stroke="#fff" stroke-width="30"/>
+    <path d="M703-20c-54 115-67 232-37 351 14 55 18 112 11 189" fill="none" stroke="#b8c1d4" stroke-width="5"/>
+    <path d="M150-20c58 119 84 237 77 356-4 62 8 118 37 184" fill="none" stroke="#fff" stroke-width="26"/>
+    <path d="M150-20c58 119 84 237 77 356-4 62 8 118 37 184" fill="none" stroke="#b8c1d4" stroke-width="4"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="27" fill="#6f6c93" opacity=".82">
+    <text x="350" y="66">The H Dubai</text>
+    <text x="88" y="438">World Trade</text>
+    <text x="650" y="356">Jumeirah</text>
+    <text x="75" y="220" transform="rotate(-63 75 220)">Zaabeel Rd</text>
+    <text x="534" y="118" transform="rotate(22 534 118)">Sheikh Zayed Rd</text>
+  </g>
+  <g fill="#b542b4">
+    <circle cx="323" cy="72" r="17"/>
+    <circle cx="118" cy="432" r="17"/>
+    <circle cx="712" cy="345" r="17"/>
+    <circle cx="323" cy="72" r="6" fill="#fff"/>
+    <circle cx="118" cy="432" r="6" fill="#fff"/>
+    <circle cx="712" cy="345" r="6" fill="#fff"/>
+  </g>
+  <g filter="url(#pinshadow)">
+    <path d="M455 178c-36 0-64 28-64 64 0 50 64 122 64 122s64-72 64-122c0-36-28-64-64-64z" fill="#df503c"/>
+    <circle cx="455" cy="242" r="18" fill="#fff"/>
+  </g>
+  <text x="390" y="486" font-family="Arial, sans-serif" font-size="32" fill="#5b6d9b" opacity=".82">Google</text>
+  <g transform="translate(805 413)" opacity=".64" stroke="#506079" stroke-width="8" stroke-linecap="round">
+    <path d="M0 34V0h34M34 0h34v34M68 34v34H34M34 68H0V34"/>
+  </g>
+</svg>
