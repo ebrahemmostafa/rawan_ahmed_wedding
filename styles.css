@@ -25,7 +25,7 @@ body {
     radial-gradient(circle at 82% 5%, rgba(155, 174, 199, .22), transparent 28rem),
     linear-gradient(135deg, #18131a, #312838 48%, #19171c);
   color: var(--ink);
-  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
 button,
@@ -183,7 +183,7 @@ button {
   z-index: 2;
   direction: ltr;
   color: rgba(95, 70, 88, .86);
-  font-family: "Segoe Script", "Brush Script MT", cursive;
+  font-family: "Aref Ruqaa", "Segoe Script", "Brush Script MT", cursive;
   font-size: 28px;
   line-height: 1.25;
   text-align: center;
@@ -348,7 +348,7 @@ button {
 .names {
   margin: 0;
   color: #fff;
-  font-family: "Aldhabi", "Diwani Letter", "Traditional Arabic", "Segoe UI", Tahoma, serif;
+  font-family: "Aref Ruqaa", "Aldhabi", "Diwani Letter", "Traditional Arabic", serif;
   font-size: 74px;
   line-height: .82;
   font-weight: 400;
