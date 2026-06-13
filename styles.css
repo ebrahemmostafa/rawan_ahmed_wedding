@@ -679,14 +679,8 @@ button {
   font-size: 13px;
 }
 
-.qr-code-img {
-  width: 140px;
-  height: 140px;
-  margin: 32px auto 0;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
+
+
 
 .venue-mark {
   position: absolute;
